@@ -255,7 +255,7 @@ class G1RobotPresets:
         return RobotBaseCfg.get_base_config(
             init_pos=init_pos,
             init_rot=init_rot,
-            include_waist=False,
+            include_waist=True,
             hand_type="gripper"
         )
     
@@ -266,7 +266,7 @@ class G1RobotPresets:
         return RobotBaseCfg.get_base_config(
             init_pos=init_pos,
             init_rot=init_rot,
-            include_waist=False,
+            include_waist=True,
             hand_type="dex3",
             base_config=G129_CFG_WITH_DEX3_BASE_FIX
         )
@@ -279,7 +279,7 @@ class G1RobotPresets:
         return RobotBaseCfg.get_base_config(
             init_pos=init_pos,
             init_rot=init_rot,
-            include_waist=False,
+            include_waist=True,
             hand_type="inspire",
             base_config=G129_CFG_WITH_INSPIRE_HAND
         )

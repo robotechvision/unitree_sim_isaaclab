@@ -44,27 +44,30 @@ class DDSActionProvider(ActionProvider):
         """Setup joint mapping"""
         if self.enable_robot == "g129":
             self.arm_joint_mapping = {
-                "left_shoulder_pitch_joint": 0,
-                "left_shoulder_roll_joint": 1,
-                "left_shoulder_yaw_joint": 2,
-                "left_elbow_joint": 3,
-                "left_wrist_roll_joint": 4,
-                "left_wrist_pitch_joint": 5,
-                "left_wrist_yaw_joint": 6,
-                "right_shoulder_pitch_joint": 7,
-                "right_shoulder_roll_joint": 8,
-                "right_shoulder_yaw_joint": 9,
-                "right_elbow_joint": 10,
-                "right_wrist_roll_joint": 11,
-                "right_wrist_pitch_joint": 12,
-                "right_wrist_yaw_joint": 13
+                "waist_yaw_joint": 0,
+                "waist_pitch_joint": 1,
+                "waist_roll_joint": 2,
+                "left_shoulder_pitch_joint": 3,
+                "left_shoulder_roll_joint": 4,
+                "left_shoulder_yaw_joint": 5,
+                "left_elbow_joint": 6,
+                "left_wrist_roll_joint": 7,
+                "left_wrist_pitch_joint": 8,
+                "left_wrist_yaw_joint": 9,
+                "right_shoulder_pitch_joint": 10,
+                "right_shoulder_roll_joint": 11,
+                "right_shoulder_yaw_joint": 12,
+                "right_elbow_joint": 13,
+                "right_wrist_roll_joint": 14,
+                "right_wrist_pitch_joint": 15,
+                "right_wrist_yaw_joint": 16
             }
             self.all_joint_names = self.env.scene["robot"].data.joint_names
             self.joint_to_index = {name: i for i, name in enumerate(self.all_joint_names)}
             self.arm_action_pose = [self.joint_to_index[name] for name in self.arm_joint_mapping.keys()]
             self.arm_action_pose_indices = [self.arm_joint_mapping[name] for name in self.arm_joint_mapping.keys()]
             self._arm_target_indices = [self.joint_to_index[name] for name in self.arm_joint_mapping.keys()]
-            self._arm_source_indices = [idx + 15 for idx in self.arm_joint_mapping.values()]  # source data from positions[15:]
+            self._arm_source_indices = [idx + 12 for idx in self.arm_joint_mapping.values()]  # source data from positions[15:]
         elif self.enable_robot == "h1_2":
             self.arm_joint_mapping = {
                 "left_shoulder_pitch_joint": 0,

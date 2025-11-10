@@ -39,7 +39,7 @@ class DDSRLActionProvider(ActionProvider):
         device = self.env.device
         if hasattr(self, "arm_joint_mapping") and self.arm_joint_mapping:
             self._arm_target_indices = [self.joint_to_index[name] for name in self.arm_joint_mapping.keys()]
-            self._arm_source_indices = [idx + 15 for idx in self.arm_joint_mapping.values()]
+            self._arm_source_indices = [idx + 12 for idx in self.arm_joint_mapping.values()]
             self._arm_target_idx_t = torch.tensor(self._arm_target_indices, dtype=torch.long, device=device)
             self._arm_source_idx_t = torch.tensor(self._arm_source_indices, dtype=torch.long, device=device)
         if self.enable_gripper:
