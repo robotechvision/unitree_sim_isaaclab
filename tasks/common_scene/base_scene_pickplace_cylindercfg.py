@@ -120,7 +120,7 @@ class TableCylinderSceneCfg(InteractiveSceneCfg): # inherit from the interactive
             rot=[1.0, 0.0, 0.0, 0.0],
         ),
         spawn=UsdFileCfg(
-            usd_path=f"{project_root}/assets/objects/wine_bottle.usda",    # table model file
+            usd_path=f"{project_root}/rtv_assets/objects/wine_bottle.usda",    # table model file
             scale=(0.01, 0.01, 0.01),
             # rigid_props=sim_utils.RigidBodyPropertiesCfg(kinematic_enabled=True),
         )

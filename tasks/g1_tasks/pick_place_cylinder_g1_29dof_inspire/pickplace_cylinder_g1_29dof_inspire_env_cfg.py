@@ -56,7 +56,7 @@ class ObjectTableSceneCfg(TableCylinderSceneCfg):
             rot=[1.0, 0.0, 0.0, 0.0],
         ),
         spawn=UsdFileCfg(
-            usd_path=f"{project_root}/assets/objects/front_camera.usda",    # table model file
+            usd_path=f"{project_root}/rtv_assets/objects/front_camera.usda",    # table model file
             # rigid_props=sim_utils.RigidBodyPropertiesCfg(kinematic_enabled=True),
         )
     )
