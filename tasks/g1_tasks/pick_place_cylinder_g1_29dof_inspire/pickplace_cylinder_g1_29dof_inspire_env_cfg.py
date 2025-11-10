@@ -16,6 +16,8 @@ from isaaclab.managers import TerminationTermCfg as DoneTerm
 from isaaclab.managers import RewardTermCfg as RewTerm
 from isaaclab.utils import configclass
 from isaaclab.assets import ArticulationCfg
+from isaaclab.assets import  AssetBaseCfg
+from isaaclab.sim.spawners.from_files.from_files_cfg import UsdFileCfg
 from . import mdp
 # use Isaac Lab native event system
 
@@ -24,7 +26,8 @@ from tasks.common_event.event_manager import SimpleEvent, SimpleEventManager
 
 # import public scene configuration
 from tasks.common_scene.base_scene_pickplace_cylindercfg import TableCylinderSceneCfg
-
+import os
+project_root = os.environ.get("PROJECT_ROOT")
 ##
 # Scene definition
 ##
@@ -42,9 +45,21 @@ class ObjectTableSceneCfg(TableCylinderSceneCfg):
 
 
     # 6. add camera configuration 
-    front_camera = CameraPresets.g1_front_camera()
+    # front_camera = CameraPresets.g1_front_camera()
     left_wrist_camera = CameraPresets.left_inspire_wrist_camera()
     right_wrist_camera = CameraPresets.right_inspire_wrist_camera()
+
+    front_camera_ros = AssetBaseCfg(
+        prim_path="/World/envs/env_.*/Robot/d435_link/front_camera_ros",
+        init_state=AssetBaseCfg.InitialStateCfg(
+            pos=[0.0, 0.0, 0.0],  # 房间中心点
+            rot=[1.0, 0.0, 0.0, 0.0],
+        ),
+        spawn=UsdFileCfg(
+            usd_path=f"{project_root}/assets/objects/front_camera.usda",    # table model file
+            # rigid_props=sim_utils.RigidBodyPropertiesCfg(kinematic_enabled=True),
+        )
+    )
 
 ##
 # MDP settings

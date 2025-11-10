@@ -112,6 +112,19 @@ class TableCylinderSceneCfg(InteractiveSceneCfg): # inherit from the interactive
             ),
         ),
     )
+
+    bottle = AssetBaseCfg(
+        prim_path="/World/envs/env_.*/Bottle",
+        init_state=AssetBaseCfg.InitialStateCfg(
+            pos=[-0.15, 0.5, 0.76],  # 房间中心点
+            rot=[1.0, 0.0, 0.0, 0.0],
+        ),
+        spawn=UsdFileCfg(
+            usd_path=f"{project_root}/assets/objects/wine_bottle.usda",    # table model file
+            scale=(0.01, 0.01, 0.01),
+            # rigid_props=sim_utils.RigidBodyPropertiesCfg(kinematic_enabled=True),
+        )
+    )
     # Ground plane
     # 3. ground configuration
     # ground = AssetBaseCfg(

@@ -28,6 +28,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+*.pyc
 
 # ================================
 # env
@@ -75,7 +76,6 @@ kit/
 logs/
 videos/
 screenshots/
-*.usda
 
 
 # ROS 相关（如果使用）
