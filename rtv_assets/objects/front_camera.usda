@@ -74,7 +74,7 @@ def Xform "Root"
             token inputs:renderProductPath.connect = </Root/front_camera/RenderProduct.outputs:renderProductPath>
             custom token inputs:renderProductPathRight
             custom bool inputs:resetSimulationTimeOnStop = 1
-            custom string inputs:topicName = "camera_info"
+            custom string inputs:topicName = "/camera/d435/color/camera_info"
             custom string inputs:topicNameRight
             custom bool inputs:useSystemTime
             token node:type = "isaacsim.ros2.bridge.ROS2CameraInfoHelper"
@@ -231,6 +231,30 @@ def Xform "Root"
             custom token inputs:viewport
             token node:type = "isaacsim.ros2.bridge.ROS2CameraHelper"
             int node:typeVersion = 2
+        }
+
+        def OmniGraphNode "ros2_publish_clock" (
+            apiSchemas = ["NodeGraphNodeAPI"]
+        )
+        {
+            custom uint64 inputs:context
+            uint64 inputs:context.connect = </Root/front_camera/Context.outputs:context>
+            custom uint inputs:execIn (
+                customData = {
+                    bool isExecution = 1
+                }
+            )
+            uint inputs:execIn.connect = </Root/front_camera/OnPlaybackTick.outputs:tick>
+            custom string inputs:nodeNamespace
+            custom string inputs:qosProfile
+            custom uint64 inputs:queueSize
+            custom double inputs:timeStamp
+            double inputs:timeStamp.connect = </Root/front_camera/OnPlaybackTick.outputs:time>
+            custom string inputs:topicName
+            token node:type = "isaacsim.ros2.bridge.ROS2PublishClock"
+            int node:typeVersion = 1
+            uniform token ui:nodegraph:node:expansionState = "open"
+            uniform float2 ui:nodegraph:node:pos = (-113.647675, 1105.3273)
         }
     }
 }

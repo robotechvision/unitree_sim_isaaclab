@@ -433,7 +433,7 @@ def main():
         setup_signal_handlers(controller,dds_manager)
     else:
         setup_signal_handlers(controller)
-    print("Note: The DDS in Sim transmits messages on channel 1. Please ensure that other DDS instances use the same channel for message exchange by setting: ChannelFactoryInitialize(1).")
+    print("Note: The DDS in Sim transmits messages on channel 0. Please ensure that other DDS instances use the same channel for message exchange by setting: ChannelFactoryInitialize(0, 'lo').")
     try:
         # start controller - start asynchronous components
         print("========= start controller =========")
