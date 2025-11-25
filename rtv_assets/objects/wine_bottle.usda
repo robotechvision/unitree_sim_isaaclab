@@ -45,7 +45,7 @@ def Xform "Root"
                         displayGroup = "Albedo"
                         displayName = "Base Color"
                     )
-                    asset inputs:diffuse_texture = @/home/matej/rtv/r2_humanoid/simulation_ws/src/unitree_sim_isaaclab/assets/objects/750_mL_Wine_Bottle_v1_L3.123c933d14bf-506d-4418-9f44-3613ae904b91/textures/14042_750 mL_Wine_Bottle_dfinal.jpg@ (
+                    asset inputs:diffuse_texture = @rtv_assets/objects/wine_bottle/14042_750 mL_Wine_Bottle_dfinal.jpg@ (
                         displayGroup = "Albedo"
                         displayName = "Albedo Map"
                     )
